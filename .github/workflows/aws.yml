@@ -17,6 +17,7 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_session_token: ${{ secrets.AWS_SESSSION_TOKEN }} 
           application_name: reactapp
           environment_name: Reactapp-env
           version_label: reactapp_v1
