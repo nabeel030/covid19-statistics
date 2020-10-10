@@ -15,8 +15,8 @@ jobs:
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v13
         with:
-          aws_access_key_id: ASIAT2IT4SWU5WBP6WF2
-          aws_secret_key: LLOdLutlaWygtH7mFp6M1h0hQ5liEnNReLXfZRJl
+          aws_access_key: $ {{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key:    $ {{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: reactapp
           environment_name: Reactapp-env
           version_label: reactapp_v1
