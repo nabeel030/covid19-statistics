@@ -1,0 +1,24 @@
+name: Deploy master
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Zip package to deploy
+        run: zip -r app.zip . -x '*.git*'
+
+      - name: Deploy to EB
+        uses: einaregilsson/beanstalk-deploy@v13
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          application_name: reactapp
+          environment_name: Reactapp-env
+          version_label: reactapp_v1
+          region: us-east-1
+          deployment_package: app.zip
