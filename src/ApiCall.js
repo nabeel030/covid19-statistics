@@ -17,7 +17,7 @@ class ApiCall extends Component {
             const countries = res.data.Countries;
             const global = res.data.Global;
             this.setState( {countries, global, chartData: {
-                labels: ['NewConfirmed','TotalConfirmed','NewDeaths','TotalDeaths','NewRecovered','TotalRecovered'],
+                labels: ['New Confirmed','Total Confirmed','New Deaths','Total Deaths','New Recovered','Total Recovered'],
                 datasets: [
                     {
                         label: 'Global',
@@ -82,7 +82,7 @@ class ApiCall extends Component {
             if(selected_country === Country.Country) 
             {
                 this.setState( { chartData: {
-                    labels: ['NewConfirmed','TotalConfirmed','NewDeaths','TotalDeaths','NewRecovered','TotalRecovered'],
+                    labels: ['New Confirmed','Total Confirmed','New Deaths','Total Deaths','New Recovered','Total Recovered'],
                     datasets: [
                         {
                             label: Country.Country,
@@ -108,6 +108,7 @@ class ApiCall extends Component {
                 }
             } );
             }
+			return null;
         });
     }
 
